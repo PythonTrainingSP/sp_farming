@@ -26,5 +26,4 @@ while flag == 'y' or flag == 'Y':
 
 #print(record) #user details
 for record in records:
-    out.writerow(record)#writing to output file
- 
+    out.writerow(record)
