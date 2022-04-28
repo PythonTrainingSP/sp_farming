@@ -36,5 +36,4 @@ while flag == 'y' or flag == 'Y':
 for record in records:
     out.writerow(record) # writing to output file
 
-    git config --global user.name "PythonTrainingSP"
-git config --global user.email "pythontraning737@email.com"
+    
