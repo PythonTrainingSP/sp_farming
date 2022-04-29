@@ -15,6 +15,7 @@ while flag == 'y' or flag == 'Y':
     snf  = float(input('SnF '))
     price = float(input('Price per liter '))
     amount = quantity * price
+    #calculating amount
     
     #Reading Cow detail end
 
