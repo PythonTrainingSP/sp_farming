@@ -1,3 +1,4 @@
+#this program created for addind milking
 from csv import writer
 
 out = writer(open("milking.csv", "a"))         #creating output file

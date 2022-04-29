@@ -1,4 +1,4 @@
-
+#this program created for addind feed
    
 from csv import writer
 out=writer(open("feeding.csv", "a"))
