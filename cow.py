@@ -8,7 +8,7 @@ records = [] #empty record for multiple record
 #Reading Cow detail start
 flag = 'y'
 
-while flag.lower() == 'y'.lower():
+while flag.lower() == 'y'.lower():  # Testing Python Training  Code
     cow_id = input('Cow id? ')
     breed = input('Breed? ')
     dob = input('Bob (dd/mm/yy)? ')
