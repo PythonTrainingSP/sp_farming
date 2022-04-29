@@ -1,5 +1,5 @@
-
-from csv import writer
+#this program created for addind cow detail
+from csv import writer             #creating a csv file imported library
 
 out = writer(open("cow.csv", "a"))         #creating output file w mode always creat a new file
 record = [] #empty record for single record
@@ -45,5 +45,5 @@ while flag.lower() == 'y'.lower():
 for record in records: # write one by one using for loop
     out.writerow(record) # writing to output file
 
-#modified cow csv file
- #modified file for git
+  #modified cow csv file
+    #modified file for git
