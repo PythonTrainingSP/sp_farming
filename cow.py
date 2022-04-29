@@ -1,3 +1,4 @@
+#this program created for addind cow detail
 from csv import writer
 
 out = writer(open("cow.csv", "a"))         #creating output file w mode always creat a new file
