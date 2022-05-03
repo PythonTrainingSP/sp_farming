@@ -27,7 +27,7 @@ while flag.lower() == 'y'.lower():
     record["dob"] = dob
     record["weight"] = weight 
     record["color"] = color
-    record.append(gender) 
+    record["gender"] = gender
     if ((gender.upper() == "female".upper()) or (gender.upper() == 'f'.upper())):
         record["milking"] = milking
         record["gestationperiod"] = gestationperiod 
