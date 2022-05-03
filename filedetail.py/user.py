@@ -1,3 +1,4 @@
+#this program created for addind user
 from csv import writer
 
 out = writer(open("user.csv","a"))

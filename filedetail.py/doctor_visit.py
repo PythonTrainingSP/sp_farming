@@ -1,3 +1,4 @@
+#this program created for addind doctor visit
 from dbconnection import *
 
 record = {}  # empty record for single record
