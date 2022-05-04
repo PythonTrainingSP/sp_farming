@@ -23,11 +23,11 @@ while flag == 'y' or flag == 'Y':
     #reading user detail end
     
     #adding user detail into record start
-    record.append(user_id)
-    record.append(first_name)
-    record.append(last_name)
-    record.append(password)
-    record.append(phone)
+    record["user_id"] = user_id
+    record["first_name"] = first_name
+    record["last_name"] = last_name
+    record["password"] = password
+    record["phone"] = phone
     
     records.append(record)#addingto records
     #adding user detail into record end
