@@ -20,10 +20,10 @@ while flag == "Y" or flag == "y":
 
     # adding doctor detail into record start
      record["date"]=date
-     record["doctor_name"]=name
+     record["name"]=name
      record["cow_id"]=cow_id
-     record["vaccine_name"]=vaccineName
-     record["vaccine_type"]=vaccineType
+     record["vaccineName"]=vaccineName
+     record["vaccineType"]=vaccineType
      record["dose"]=dose
      record["fee"]=fee
 
