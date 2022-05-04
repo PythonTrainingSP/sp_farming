@@ -1,3 +1,11 @@
+'''
+Author: Thrisha
+Date: 04/04/2022
+
+Version 1.0
+Converted CSV writing to MongoDB
+Version 1.1
+'''
 from dbconnection import *
 
 
