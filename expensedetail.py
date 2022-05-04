@@ -1,3 +1,12 @@
+'''
+Author: Maruth
+Date: 03/04/2022
+
+Version 1.0
+Converted CSV writing to MongoDB
+Version 1.1
+'''
+
 from dbconnection import *
 
 record = {} #empty record for single record should be dic/JSON Object
