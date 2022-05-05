@@ -1,3 +1,5 @@
+#This program is to read data from database
+
 '''
 Author: Brundha
 Date: 6/5/2022
@@ -86,7 +88,6 @@ while flag == 'y' or flag == 'Y':
 for record in records: # write one by one using for loop
      spcow.insert_one(record)
 
-    
 '''
 record = readcowdetailbymilking("y")
 for rec in record:
