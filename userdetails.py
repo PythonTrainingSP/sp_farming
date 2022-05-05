@@ -9,6 +9,28 @@ Version 1.1
 from dbconnection import *
 
 
+def readuserdetailsbyuserid(user_id):
+    userdetails = spuser.find({"userid":user_id})
+    return userdetails
+
+def readuserdetailsbyfirstname(first_name):
+    userdetails = spuser.find({"firstname":first_name})
+    return userdetails
+
+def readuserdetailsbylastname(last_name):
+    userdetails = spuser.find({"lastname":last_name})
+    return userdetails
+
+def readuserdetailsbypassword(password):
+    userdetails = spuser.find({"password":password})
+    return userdetails
+
+def readuserdetailsbyphone(phone):
+    userdetails = spuser.find({"phone":phone})
+    return userdetails
+
+
+'''
 record = {} #empty record for single record should be dic/JSON Object 
 records = [] #empty record for multiple record
 
@@ -37,4 +59,8 @@ while flag == 'y' or flag == 'Y':
 #print(record) #user details
 for record in records:
     spuser.insert_one(record)
-    
+
+    '''
+record = readuserdetailsbytime("r")
+for rec in record:
+    print(rec)
