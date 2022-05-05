@@ -8,6 +8,36 @@ Version 1.1
 '''
 from dbconnection import *
 
+def readmilkingdetailbycustomerid(customer_id):
+    milkingdetail = spmilking.find({"customerid":customer_id})
+    return milkingdetail
+
+def readmilkingdetailbydate(date):
+    milkingdetail = spmilking.find({"date":date})
+    return milkingdetail
+
+def readmilkingdetailbytime(time):
+    milkingdetail = spmilking.find({"time":time})
+    return milkingdetail
+
+def readmilkingdetailbyquantity(quantity):
+    milkingdetail = spmilking.find({"quantity":quantity})
+    return milkingdetail
+
+def readmilkingdetailbyfat(fat):
+    milkingdetail = spmilking.find({"fat":fat})
+    return milkingdetail
+
+def readmilkingdetailbysnf(snf):
+    milkingdetail = spmilking.find({"snf":snf})
+    return milkingdetail
+
+def readmilkingdetailbyprice(price):
+    milkingdetail = spmilking.find({"price":price})
+    return milkingdetail
+
+
+'''
 record = {} #empty record for single record should be dic/JSON Object
 records = [] #empty record for multiple record
 
@@ -40,3 +70,7 @@ while flag == 'y' or flag == 'Y':
     
 for record in records:
     spmilking.insert_one(record)
+'''
+record = readmilkingdetailbytime("m")
+for rec in record:
+    print(rec)
