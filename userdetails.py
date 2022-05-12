@@ -64,3 +64,9 @@ for record in records:
 record = readuserdetailsbytime("r")
 for rec in record:
     print(rec)
+
+db. userdetails. find ({user_id:001}) 
+
+db. userdetails. updatemany({first_name: "daksha"}) 
+
+db. userdetails. remove ({user_id:001})
