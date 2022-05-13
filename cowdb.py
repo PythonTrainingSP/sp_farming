@@ -94,7 +94,7 @@ for rec in record:
     print(rec)
     
      #reading specific data
-    dbconnection.cow.find({"breed":"sindhu"})
+    dbconnection.cow.find({"breed":"sindhi"})
 
     #modify a single data
     dbconnection.cow.updatemany({"breed":"gir"},{set{milking:yes}})
