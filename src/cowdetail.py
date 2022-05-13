@@ -46,18 +46,14 @@ def readcowdetailbyvaccinationschedule(vaccinationschedule):
     cowdetail = spcow.find({"vaccinationschedule":vaccinationschedule})
     return cowdetail
 
-record = readcowdetailbymilking("y")
-for rec in record:
-    print(rec)
-    
-     #reading specific data
-    spcow.find({"breed":"sindhi"})
+#modify a single data
+def updatecowdetailbyid(cow_id, weight, healthstatus, vaccinationschedule):
+    spcow.update_one({"cow_id":cow_id},
+        {"$set": {"weight":weight, "healthstatus":healthstatus,"vaccinationschedule":vaccinationschedule }})
 
-    #modify a single data
-    spcow.update_many({"breed":"gir"},{"$set": {"milking":"yes"}})
-
-    #remove a specific data
-    spcow.delete_one({"gender":"male"})
+#remove a specific data
+def deletecowdetailbyid(cow_id):
+    spcow.delete_one({"cow_id":cow_id})
 
 
 
