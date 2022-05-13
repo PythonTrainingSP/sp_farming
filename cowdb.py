@@ -92,3 +92,15 @@ for record in records: # write one by one using for loop
 record = readcowdetailbymilking("y")
 for rec in record:
     print(rec)
+    
+     #reading specific data
+    dbconnection.cow.find({"breed":"sindhu"})
+
+    #modify a single data
+    dbconnection.cow.updatemany({"breed":"gir"},{set{milking:yes}})
+
+    #remove a specific data
+    dbconnection.cow.remove({"gender":"male"})
+
+
+
