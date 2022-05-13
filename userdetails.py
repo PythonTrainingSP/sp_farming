@@ -61,12 +61,11 @@ for record in records:
     spuser.insert_one(record)
 
     '''
-record = readuserdetailsbytime("r")
+record = readuserdetailsbyuserid("r")
 for rec in record:
     print(rec)
 
-db. userdetails. find ({user_id:001}) 
 
-db. userdetails. updatemany({first_name: "daksha"}) 
-
-db. userdetails. remove ({user_id:001})
+spuser.find({"user_id":"001"}) 
+spuser.update_one({"first_name": "daksha"},{"$set":{"last_name":"Muniyandi"}})
+spuser.delete_one({"user_id":"001"})

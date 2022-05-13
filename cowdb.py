@@ -94,13 +94,13 @@ for rec in record:
     print(rec)
     
      #reading specific data
-    dbconnection.cow.find({"breed":"sindhi"})
+    spcow.find({"breed":"sindhi"})
 
     #modify a single data
-    dbconnection.cow.updatemany({"breed":"gir"},{set{milking:yes}})
+    spcow.update_many({"breed":"gir"},{"$set": {"milking":"yes"}})
 
     #remove a specific data
-    dbconnection.cow.remove({"gender":"male"})
+    spcow.delete_one({"gender":"male"})
 
 
 
