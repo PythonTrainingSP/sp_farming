@@ -37,38 +37,11 @@ def readdoctordetailbyfee(fee):
     Doctordetail = spdoctorvisit.find({"fee":fee})
     return Doctordetail
 
-'''
-record = {}  # empty record for single record
-records = []  # empty record for multiple record
+#modify a single data
+def updatedoctordetailbyid(date, cow_id, VaccineName, VaccineType, does):
+    spcow.update_one({"cow_id":cow_id},
+        {"$set": {"date":date, "cow_id":cow_id,"VaccineName":VaccineType}})
 
-
-flag = "Y"
-while flag == "Y" or flag == "y":
-    # Reading doctor visit detail start
-     date = input('Date of visit (dd/mm/yy)? ')
-     name = input('Doctor Name  ')
-     cow_id = input('Cow id? ')
-     vaccineName = input('Vaccine name? ')
-     vaccineType = input('Vaccine type? ')
-     dose = input('Dose of a vaccine? ')
-     fee = float(input('Doctor fee? '))
-
-      # Reading doctor visit detail end
-
-    # adding doctor detail into record start
-     record["date"]=date
-     record["name"]=name
-     record["cow_id"]=cow_id
-     record["vaccineName"]=vaccineName
-     record["vaccineType"]=vaccineType
-     record["dose"]=dose
-     record["fee"]=fee
-
-     records.append(record)  # adding to record
-    # adding doctor detail into record end
-     flag = input('Continue (y/n)? ')
-     record = {}         #empty record object
-'''
-
-for record in records:
-    spdoctorvisit.insert_one(record)
+#remove a specific data
+def deletedoctordetailbyid(cow_id):
+    spcow.delete_one({"cow_id":cow_id})
