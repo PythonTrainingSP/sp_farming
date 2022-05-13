@@ -7,7 +7,7 @@ Converted CSV writing to MongoDB
 Version 1.1
 '''
 
-from dbconnection import *
+from src.db.dbconnection import *
 
 record = {} #empty record for single record should be dic/JSON Object
 records = [] #empty record for multiple record

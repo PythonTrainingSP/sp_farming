@@ -7,7 +7,7 @@ Converted CSV writing to MongoDB
 Version 1.1
 '''
 
-from dbconnection import *
+from src.db.dbconnection import *
 
 #only for writing DB
 def readfeedDetailbydate(date):

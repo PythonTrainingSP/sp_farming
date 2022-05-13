@@ -6,7 +6,7 @@ version 1.0
 converted csv writing to mongodb
 version 1.1
 '''
-from dbconnection import *
+from src.db.dbconnection import *
 
 #only for writing DB
 def readdoctordetailbydate (date):
