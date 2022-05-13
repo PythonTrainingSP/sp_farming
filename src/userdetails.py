@@ -8,7 +8,6 @@ Version 1.1
 '''
 from src.db.dbconnection import *
 
-
 def readuserdetailsbyuserid(user_id):
     userdetails = spuser.find({"userid":user_id})
     return userdetails
@@ -29,12 +28,12 @@ def readuserdetailsbyphone(phone):
     userdetails = spuser.find({"phone":phone})
     return userdetails
 
+#modify a single data
+def updateuserdetailbyid(user_id, first_name, last_name, password, phone):
+    spuser.update_one({"user_id":user_id},
+        {"$set": {"first_name":first_name, 
+        "last_name":last_name,"password":password, "phone":phone}})
 
-record = readuserdetailsbyuserid("r")
-for rec in record:
-    print(rec)
-
-
-spuser.find({"user_id":"001"}) 
-spuser.update_one({"first_name": "daksha"},{"$set":{"last_name":"Muniyandi"}})
-spuser.delete_one({"user_id":"001"})
+#remove a specific data
+def deleteuserdetailbyid(cow_id):
+    spuser.delete_one({"user_id":"001"})
