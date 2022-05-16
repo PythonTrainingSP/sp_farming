@@ -4,8 +4,11 @@
 from feeddetail import *
 from milkingdetail import *
 from cowdetail import *  # to include cow function
+from userdetails import *
+from expensedetail import *
 from bson.json_util import dumps, loads
-from flask import Flask # convert all my function as service, then only i can access from browser
+from flask import Flask
+from userdetails import readuserdetailsbyfirstname # convert all my function as service, then only i can access from browser
   
 # Flask constructor takes the name of 
 # current module (__name__) as argument.
@@ -14,28 +17,66 @@ app = Flask(__name__)
 # The route() function of the Flask class is a decorator, 
 # which tells the application which URL should call 
 # the associated function. 
-@app.route('/cowdetail/<cowid>')
+@app.route('/cowdetail/<cow_id>')
 # ‘/’ URL is bound with hello_world() function.
-def getCowDetail(cowid):
-    record = readcowdetailbycowid(cowid)  # for reading cow detail by id
+def getCowDetail(cow_id):
+    record = readcowdetailbycowid(cow_id)  # for reading cow detail by id
     list_cur = list(record) # convert record into list
     # Converting to the JSON
     json_data = dumps(list_cur, indent = 2) # convert as json object
     return json_data
 
+@app.route('/cowdetail/<breed>')
+# ‘/’ URL is bound with hello_world() function.
+def getCowDetail(breed):
+    record = readcowdetailbybreed(breed)  # for reading cow detail by breed
+    list_cur = list(record) # convert record into list
+    # Converting to the JSON
+    json_data = dumps(list_cur, indent = 2) # convert as json object
+    return json_data
+
+@app.route('/cowdetail/<gender>')
+# ‘/’ URL is bound with hello_world() function.
+def getCowDetail(gender):
+    record = readcowdetailbygender(gender)  # for reading cow detail by gender
+    list_cur = list(record) # convert record into list
+    # Converting to the JSON
+    json_data = dumps(list_cur, indent = 2) # convert as json object
+    return json_data   
+
+
+@app.route('/userdetails/<first_name>')
+# ‘/’ URL is bound with hello_world() function.
+def getuserdetails(first_name):
+    record = readuserdetailsbyfirstname(first_name)  # for reading userdetails by firstname
+    list_cur = list(record) # convert record into list
+    # Converting to the JSON
+    json_data = dumps(list_cur, indent = 2) # convert as json object
+    return json_data   
+
+@app.route('/userdetails/<user_id>')
+# ‘/’ URL is bound with hello_world() function.
+def getuserdetails(user_id):
+    record = readuserdetailsbyuserid(user_id)  # for reading userdetails by userid
+    list_cur = list(record) # convert record into list
+    # Converting to the JSON
+    json_data = dumps(list_cur, indent = 2) # convert as json object
+    return json_data   
+
 @app.route('/feeddetail')
 # ‘/’ URL is bound with hello_world() function.
 def getFeedList():
-    record = readfeedDetailList()
+    record = readfeedDetailList()            #for reading feeddetail list
     list_cur = list(record)
     # Converting to the JSON
-    json_data = dumps(list_cur, indent = 2) 
+    json_data = dumps(list_cur, indent = 2)  #convert as json object
     return json_data
 
-@app.route('/milkingdetail/<customerid>')
+@app.route('/milkingdetail/<customer_id>')
 # ‘/’ URL is bound with hello_world() function.
-def getMilingDetail(customerid):
-    record = readmilkingdetailbycustomerid(customerid)
+def getMilingDetail(customer_id):
+    record = readmilkingdetailbycustomerid(customer_id)        #readmilkingdetailbycustomerid
+
     list_cur = list(record)
     # Converting to the JSON
     json_data = dumps(list_cur, indent = 2) 
@@ -44,15 +85,23 @@ def getMilingDetail(customerid):
 @app.route('/milkingdetaillist')
 # ‘/’ URL is bound with hello_world() function.
 def getMilingDetailList():
-    record = readmilkingdetaillist()
+    record = readmilkingdetaillist()              #readmilkingdetaillist    
     list_cur = list(record)
     # Converting to the JSON
     json_data = dumps(list_cur, indent = 2) 
     return json_data
 
-#readmilkingdetaillist    
 
-#readmilkingdetailbycustomerid
+@app.route('/expensedetail/<transaction_date>')
+# ‘/’ URL is bound with hello_world() function.
+def getexpensedetail(transaction_date):
+    record = readexpensedetailbydate(transaction_date)       #read expense detail by date    
+    list_cur = list(record)
+    # Converting to the JSON
+    json_data = dumps(list_cur, indent = 2) 
+    return json_data
+
+
 
 # main driver function
 if __name__ == '__main__':
