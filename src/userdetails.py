@@ -6,7 +6,7 @@ Version 1.0
 Converted CSV writing to MongoDB
 Version 1.1
 '''
-from src.db.dbconnection import *
+from db.dbconnection import *
 
 def readuserdetailsbyuserid(user_id):
     userdetails = spuser.find({"userid":user_id})

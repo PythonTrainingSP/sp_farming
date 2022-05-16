@@ -6,10 +6,14 @@ Version 1.0
 Converted CSV writing to MongoDB
 Version 1.1
 '''
-from src.db.dbconnection import *
+from db.dbconnection import *
+
+def readmilkingdetaillist():
+    milkingdetail = spmilking.find()
+    return milkingdetail
 
 def readmilkingdetailbycustomerid(customer_id):
-    milkingdetail = spmilking.find({"customerid":customer_id})
+    milkingdetail = spmilking.find({"customer_id":customer_id})
     return milkingdetail
 
 def readmilkingdetailbydate(date):

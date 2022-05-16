@@ -7,7 +7,13 @@ Converted CSV writing to MongoDB
 Version 1.1
 '''
 
-from src.db.dbconnection import *
+from db.dbconnection import *
+
+
+#only for writing DB
+def readfeedDetailList():
+    feeddetail = spfeed.find()
+    return feeddetail
 
 #only for writing DB
 def readfeedDetailbydate(date):
