@@ -40,38 +40,6 @@ def readfeeddetailbyotherminerals(other_minerals):
     feeddetail = spfeed.find({"other minerals":other_minerals})
     return feeddetail
 
-
-
-'''
-
-record = {} #empty record for single record should be dic/JSON Object
-records = [] #empty record for multiple record
-
-flag="y"
-while flag=="y" or flag=="Y":
-    date=input("Date: ")
-    time=input("Time (Morning/Noon/Evening/Night): ")
-    types_of_feed=input("Types of feed: ")
-    quantity=float(input("quantity: "))
-    watering=float(input("watering: "))
-    other_minerals=input("Other Minerals: ")
-    
-    record["date"] = date
-    record["time"] = time
-    record["types_of_feed"] = types_of_feed
-    record["quantity"] = quantity
-    record["watering"] = watering
-    record["other_minerals"] =other_minerals
-    
-    records.append(record)
-    flag=input("continue(y/n)" )
-    record = {}
-    
-#print(record) #user details
-for record in records:
-    spfeed.insert_one(record)
-
-'''  
 #modify a single data
 def updatefeeddetailbydate(date, time, types_of_feed, quantity, watering, other_minerals):
     spfeed.update_one({"date":date}, {"$set": {"time":time, "typesoffeed":types_of_feed, "quantity":quantity, "watering":watering, "otherminerals":other_minerals}})
