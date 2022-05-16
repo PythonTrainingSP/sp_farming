@@ -9,35 +9,6 @@ Version 1.1
 
 from src.db.dbconnection import *
 
-#only for writing DB
-def readfeedDetailbydate(date):
-    feeddetail = spfeed.find({"date":date})
-    return feeddetail
-    
-def readfeeddetailbytime(time):
-    feeddetail = spfeed.find({"time":time})
-    return feeddetail
-
-def readfeeddetailbytypesoffeed(types_of_feed):
-    feeddetail =spfeed.find({"types of feed":types_of_feed})
-    return feeddetail
-
-def readfeeddetailbyquantity(quantity):
-    feeddetail = spfeed.find({"quantity":quantity})
-    return feeddetail
-
-def readfeeddetailbywatering(watering):
-    feeddetail = spfeed.find({"watering":watering})
-    return feeddetail
-
-def readfeeddetailbyotherminerals(other_minerals):
-    feeddetail = spfeed.find({"other minerals":other_minerals})
-    return feeddetail
-
-
-
-'''
-
 record = {} #empty record for single record should be dic/JSON Object
 records = [] #empty record for multiple record
 
@@ -65,7 +36,4 @@ while flag=="y" or flag=="Y":
 for record in records:
     spfeed.insert_one(record)
 
-'''  
-record = readfeeddetailbytime("night")
-for rec in record:
-    print(rec)
+
