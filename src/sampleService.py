@@ -45,7 +45,7 @@ def getCowDetail(gender):
     return json_data   
 
 
-@app.route('/userdetails/<first_name>')
+@app.route('/userdetailsbyname/<first_name>') # http://localhost:5400/userdetailname/muni
 # ‘/’ URL is bound with hello_world() function.
 def getuserdetails(first_name):
     record = readuserdetailsbyfirstname(first_name)  # for reading userdetails by firstname
@@ -54,7 +54,7 @@ def getuserdetails(first_name):
     json_data = dumps(list_cur, indent = 2) # convert as json object
     return json_data   
 
-@app.route('/userdetails/<user_id>')
+@app.route('/userdetails/<user_id>') # http://localhost:5400/userdetail/0001
 # ‘/’ URL is bound with hello_world() function.
 def getuserdetails(user_id):
     record = readuserdetailsbyuserid(user_id)  # for reading userdetails by userid
@@ -63,7 +63,7 @@ def getuserdetails(user_id):
     json_data = dumps(list_cur, indent = 2) # convert as json object
     return json_data   
 
-@app.route('/feeddetail')
+@app.route('/feeddetail') # http://localhost:5400/feeddetail
 # ‘/’ URL is bound with hello_world() function.
 def getFeedList():
     record = readfeedDetailList()            #for reading feeddetail list
@@ -72,7 +72,7 @@ def getFeedList():
     json_data = dumps(list_cur, indent = 2)  #convert as json object
     return json_data
 
-@app.route('/milkingdetail/<customer_id>')
+@app.route('/milkingdetail/<customer_id>') # http://localhost:5400/milkingdetail/453
 # ‘/’ URL is bound with hello_world() function.
 def getMilingDetail(customer_id):
     record = readmilkingdetailbycustomerid(customer_id)        #readmilkingdetailbycustomerid
@@ -82,7 +82,7 @@ def getMilingDetail(customer_id):
     json_data = dumps(list_cur, indent = 2) 
     return json_data
 
-@app.route('/milkingdetaillist')
+@app.route('/milkingdetaillist') # http://localhost:5400/milkingdetaillist
 # ‘/’ URL is bound with hello_world() function.
 def getMilingDetailList():
     record = readmilkingdetaillist()              #readmilkingdetaillist    
@@ -92,7 +92,7 @@ def getMilingDetailList():
     return json_data
 
 
-@app.route('/expensedetail/<transaction_date>')
+@app.route('/expensedetail/<transaction_date>')  #http://localhost:5400/expensedetail/
 # ‘/’ URL is bound with hello_world() function.
 def getexpensedetail(transaction_date):
     record = readexpensedetailbydate(transaction_date)       #read expense detail by date    
