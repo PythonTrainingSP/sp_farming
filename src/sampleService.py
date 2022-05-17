@@ -7,7 +7,7 @@ from cowdetail import *  # to include cow function
 from userdetails import *
 from expensedetail import *
 from bson.json_util import dumps, loads
-from flask import Flask
+from flask import Flask,request, jsonify
 from userdetails import readuserdetailsbyfirstname # convert all my function as service, then only i can access from browser
   
 # Flask constructor takes the name of 
@@ -26,18 +26,18 @@ def getCowDetail(cow_id):
     json_data = dumps(list_cur, indent = 2) # convert as json object
     return json_data
 
-@app.route('/cowdetail/<breed>')
+@app.route('/cowdetailbyBreed/<breed>')
 # ‘/’ URL is bound with hello_world() function.
-def getCowDetail(breed):
+def getCowDetailbyBreed(breed):
     record = readcowdetailbybreed(breed)  # for reading cow detail by breed
     list_cur = list(record) # convert record into list
     # Converting to the JSON
     json_data = dumps(list_cur, indent = 2) # convert as json object
     return json_data
 
-@app.route('/cowdetail/<gender>')
+@app.route('/cowdetailByGender/<gender>')
 # ‘/’ URL is bound with hello_world() function.
-def getCowDetail(gender):
+def getCowDetailbyGender(gender):
     record = readcowdetailbygender(gender)  # for reading cow detail by gender
     list_cur = list(record) # convert record into list
     # Converting to the JSON
@@ -47,7 +47,7 @@ def getCowDetail(gender):
 
 @app.route('/userdetailsbyname/<first_name>') # http://localhost:5400/userdetailname/muni
 # ‘/’ URL is bound with hello_world() function.
-def getuserdetails(first_name):
+def getuserdetailsbyname(first_name):
     record = readuserdetailsbyfirstname(first_name)  # for reading userdetails by firstname
     list_cur = list(record) # convert record into list
     # Converting to the JSON
@@ -101,8 +101,19 @@ def getexpensedetail(transaction_date):
     json_data = dumps(list_cur, indent = 2) 
     return json_data
 
-
-
+@app.post("/user")
+def add_user():
+    if request.is_json:
+        user = request.get_json()
+    user_id = user["user_id"]
+    first_name = user["first_name"]
+    last_name = user["last_name"]
+    password = user["password"]
+    phone = user["phone"]
+    #first_name = user["first_name"]
+    updateuserdetailbyid(user_id,first_name, last_name, password, phone)
+    return '{"ok"}'
+    
 # main driver function
 if __name__ == '__main__':
   
