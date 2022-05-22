@@ -9,6 +9,10 @@ version 1.1
 from db.dbconnection import *
 
 #only for writing DB
+def readdoctordetaillist ():
+    Doctordetail = spdoctorvisit.find()
+    return Doctordetail
+
 def readdoctordetailbydate (date):
     Doctordetail = spdoctorvisit.find({"date":date})
     return Doctordetail

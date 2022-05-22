@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/doctorvisitdetaillist') # http://localhost:5400/feeddetail
 # ‘/’ URL is bound with hello_world() function.
 def getdoctorvisitDetailList():
-    record = readdoctorvisitdetaillist()  #for reading feeddetail list
+    record = readdoctorvisitDetaillist()  #for reading feeddetail list
     list_cur = list(record)
     # Converting to the JSON
     json_data = dumps(list_cur, indent = 2) 
