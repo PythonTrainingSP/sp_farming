@@ -54,7 +54,7 @@ def getdocotordetailbydate(does):
     json_data = dumps(list_cur, indent = 2) 
     return json_data
 
-    @app.route('/doctorvisitdetail/<fee>')
+@app.route('/doctorvisitdetail/<fee>')
 def getdocotordetailbydate(fee):
     record = readdoctordetailbydate(fee)
     list_cur = list(record)
