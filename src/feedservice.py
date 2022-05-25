@@ -34,7 +34,7 @@ def getfeeddetailbyquantity(quantity):
     json_data = dumps(list_cur, indent=2)
     return json_data
 
-@app.route('/feeddetailbytypesoffeed/<typesoffeed>')
+@app.route('/feeddetailbytypesoffeed/<types_of_feed>')
 def getfeeddetailbytypesoffeed(types_of_feed):
     record = readfeeddetailbytypesoffeed(types_of_feed)
     list_cur = list(record)
@@ -48,15 +48,16 @@ def getfeeddetailbywatering(watering):
     json_data = dumps(list_cur, indent=2)
     return json_data
 
-@app.route('/feeddetailbyotherminerals/<otherminerals>')
+@app.route('/feeddetailbyotherminerals/<other_minerals>')
 def getfeeddetailbyotherminerals(other_minerals):
     record = readfeeddetailbyotherminerals(other_minerals)
     list_cur = list(record)
     json_data = dumps(list_cur, indent=2)
     return json_data
 
-@app.post("/feed")
-def add_feed():
+
+@app.post("/update/feed")
+def update_feed():
     if request.is_json:
         feed = request.get_json()
     date =feed["date"]
@@ -67,6 +68,32 @@ def add_feed():
     other_minerals=feed["other_minerals"]
     updatefeeddetailbydate(date,time,types_of_feed,quantity,watering,other_minerals)
     return '{"ok"}'
+
+@app.post("/add/feed")
+def add_feed():
+    if request.is_json:
+        feed = request.get_json()
+    date =feed["date"]
+    time=feed["time"]
+    types_of_feed=feed["types_of_feed"]
+    quantity=feed["quantity"]
+    watering=feed["watering"]
+    other_minerals=feed["other_minerals"]
+    addfeeddetail(date,time,types_of_feed,quantity,watering,other_minerals)
+    return '{"ok"}'
+
+
+@app.get('/find/feed/<date>')
+# ‘/’ URL is bound with hello_world() function.
+def get_feed(date):
+    record = readfeedDetailbydate(date)     
+    list_cur = list(record)
+    # Converting to the JSON
+    json_data = dumps(list_cur, indent = 2) 
+    return json_data
+
+
+
 
 
 if __name__ == "__main__":
