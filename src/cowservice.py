@@ -53,3 +53,35 @@ def getcowdetaibymilking(milking):
     json_data = dumps(list_cur, indent = 2)  #convert as json object
     return json_data
 
+@app.post("/update/cow")
+def update_cow():
+    if request.is_json:
+        cow = request.get_json()
+    cow_id = cow["cow_id"]
+    weight = cow["weight"]
+    healthstatus = cow["healthstatus"]
+    vaccinationschedule= cow["vaccinationschedule"]
+    
+    updatecowdetailbyid(cow_id, weight, healthstatus, vaccinationschedule)
+    return '{"ok"}'
+
+@app.post("/add/cow")
+def add_cow():
+    if request.is_json:
+        cow = request.get_json()
+    cow_id = cow["cow_id"]
+    weight = cow["weight"]
+    healthstatus = cow["healthstatus"]
+    vaccinationschedule= cow["vaccinationschedule"]
+    
+    addcowdetail(cow_id, weight, healthstatus, vaccinationschedule)
+    return '{"ok"}'
+
+@app.get('/find/cow/<cow_id>')
+# ‘/’ URL is bound with hello_world() function.
+def get_cow(cow_id):
+    record = readcowdetailbycowid(cow_id)     
+    list_cur = list(record)
+    # Converting to the JSON
+    json_data = dumps(list_cur, indent = 2) 
+    return json_data

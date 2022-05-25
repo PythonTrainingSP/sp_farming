@@ -8,10 +8,12 @@ from milkingdetail import *
 from milkingservice import *
 
 from cowdetail import *  
+from cowservice import *
 
 from userdetails import *
 
 from expensedetail import *
+
 
 from doctorvisitdetail import *
 from doctorvisitservice import *
