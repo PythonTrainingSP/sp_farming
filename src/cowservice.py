@@ -85,3 +85,12 @@ def get_cow(cow_id):
     # Converting to the JSON
     json_data = dumps(list_cur, indent = 2) 
     return json_data
+
+@app.delete('/delete/cow/<cow_id>')
+# ‘/’ URL is bound with hello_world() function.
+def delete_cow(cow_id):
+    record = readcowdetailbycowid(cow_id)     
+    list_cur = list(record)
+    # Converting to the JSON
+    json_data = dumps(list_cur, indent = 2) 
+    return json_data
