@@ -2,7 +2,6 @@ from textwrap import indent
 from feeddetail import *
 from bson.json_util import dumps, loads
 from flask import Flask, request
-app = Flask(__name__)
 
 @app.route('/feeddetail') # http://localhost:5400/feeddetail
 # ‘/’ URL is bound with hello_world() function.

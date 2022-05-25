@@ -1,9 +1,8 @@
 from doctorvisitdetail import *
 from bson.json_util import dumps, loads
 from flask import Flask
-app = Flask(__name__)
 
-@app.route('/doctorvisitdetaillist') # http://localhost:5400/feeddetail
+@app.get('/doctorvisitdetaillist') # http://localhost:5400/feeddetail
 # ‘/’ URL is bound with hello_world() function.
 def getdoctordetailList():
     record = readdoctordetaillist()  #for reading feeddetail list
@@ -19,6 +18,7 @@ def getdocotordetailbydate(date):
     json_data = dumps(list_cur, indent = 2) 
     return json_data
 
+'''
 @app.route('/doctorvisitdetail/<name>')
 def getdocotordetailbydate(name):
     record = readdoctordetailbydate(name)
@@ -61,8 +61,4 @@ def getdocotordetailbydate(fee):
     json_data = dumps(list_cur, indent = 2) 
     return json_data
 
-
-
-
-    if __name__ == '__main__':
-         app.run()
+'''

@@ -3,7 +3,6 @@ from milkingdetail import *
 from bson.json_util import dumps, loads
 from flask import Flask, request
 
-app = Flask(__name__)
 @app.route('/milkingdetaillist')
 # ‘/’ URL is bound with hello_world() function.
 def getMilkingDetailList():
