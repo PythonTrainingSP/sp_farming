@@ -1,6 +1,7 @@
+from textwrap import indent
 from doctorvisitdetail import *
 from bson.json_util import dumps, loads
-from flask import Flask
+from flask import Flask, request
 
 @app.get('/doctorvisitdetaillist') # http://localhost:5400/feeddetail
 # ‘/’ URL is bound with hello_world() function.
@@ -105,3 +106,5 @@ def delete_doctorvisit(cow_id):
     json_data = dumps(list_cur, indent = 2) 
     return json_data
 
+if __name__ == "__main__":
+    app.run()
