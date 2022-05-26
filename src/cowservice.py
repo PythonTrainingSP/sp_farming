@@ -69,12 +69,17 @@ def update_cow():
 def add_cow():
     if request.is_json:
         cow = request.get_json()
+    print("Enter into add_cow", cow)
     cow_id = cow["cow_id"]
+    breed = cow["breed"]
+    dob = cow["dob"]
+    color = cow["color"]
+    gender = cow["gender"]
     weight = cow["weight"]
     healthstatus = cow["healthstatus"]
-    vaccinationschedule= cow["vaccinationschedule"]
-    
-    addcowdetail(cow_id, weight, healthstatus, vaccinationschedule)
+    vaccinationschedule = cow["vaccinationschedule"]
+    addcowdetail(cow_id, breed, dob, weight, color, gender, 
+        healthstatus, vaccinationschedule)
     return '{"ok"}'
 
 @app.get('/find/cow/<cow_id>')

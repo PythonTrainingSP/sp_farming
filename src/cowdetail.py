@@ -57,7 +57,10 @@ def deletecowdetailbyid(cow_id):
     spcow.delete_one({"cow_id":cow_id})
 
 #modify a single data by add command
-def addcowdetail(cow_id, weight, healthstatus, vaccinationschedule):
-    #x = mycol.insert_one(mydict)
-    spuser.insert_one({"cow_id":cow_id, "weight":weight, "healthstatus":healthstatus,"vaccinationschedule":vaccinationschedule })
+def addcowdetail(cow_id, breed, dob, weight, color, gender, 
+    healthstatus, vaccinationschedule):
+    print("Inside addcowdetail", cow_id)
+    spcow.insert_one({"cow_id":cow_id, "breed": breed, "dob": dob, 
+    "weight":weight, "color":color, "gender":gender, "healthstatus":healthstatus,
+    "vaccinationschedule":vaccinationschedule })
 

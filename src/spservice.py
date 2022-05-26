@@ -18,6 +18,8 @@ from expensedetail import *
 from doctorvisitdetail import *
 from doctorvisitservice import *
   
+from feeddetail import *
+from feedservice import *
 # Flask constructor takes the name of 
 # current module (__name__) as argument.
    
