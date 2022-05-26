@@ -41,11 +41,15 @@ def readdoctordetailbyfee(fee):
     Doctordetail = spdoctorvisit.find({"fee":fee})
     return Doctordetail
 
+def adddoctordetailbyid(date,name,cow_id, VaccineName, VaccineType, dose):
+    spdoctorvisit.insert_one({"cow_id":cow_id,"date":date, "name":name,"VaccineName":VaccineName, "VaccineType":VaccineType, "dose":dose})
+
+
 #modify a single data
-def updatedoctordetailbyid(date, cow_id, VaccineName, VaccineType, does):
-    spcow.update_one({"cow_id":cow_id},
-        {"$set": {"date":date, "cow_id":cow_id,"VaccineName":VaccineType}})
+def updatedoctordetailbyid(date, cow_id, VaccineName, VaccineType, dose):
+    spdoctorvisit.update_one({"cow_id":cow_id},
+        {"$set": {"date":date, "cow_id":cow_id,"VaccineName":VaccineName, "VaccineType":VaccineType, "dose":dose}})
 
 #remove a specific data
 def deletedoctordetailbyid(cow_id):
-    spcow.delete_one({"cow_id":cow_id})
+    spdoctorvisit.delete_one({"cow_id":cow_id})
