@@ -78,8 +78,8 @@ def getMilkingDetailbyprice(price):
     return json_data
 
 
-@app.post("/milking")
-def add_milking():
+@app.post("/update/milking")
+def update_milking():
     if request.is_json:
         milking = request.get_json()
     customer_id = milking["customer_id"]
@@ -93,6 +93,27 @@ def add_milking():
     updatemilkingdetailcustomerid(customer_id,date,time,quantity,fat,snf,price)
     return '{"ok"}'
 
+@app.post("/add/milking")
+def add_milking():
+    if request.is_json:
+        milking = request.get_json()
+    customer_id = milking["customer_id"]
+    date =milking["date"]
+    time=milking["time"]
+    quantity=milking["quantity"]
+    fat=milking["fat"]
+    snf=milking["snf"]
+    price=milking["price"]
+  
+    addmilkingdetail(customer_id,date,time,quantity,fat,snf,price)
+    return '{"ok"}'
+
+@app.get("/find/milking/<customerid>")
+def get_milking(cutomer_id):
+    record = readmilkingdetailbycustomerid(cutomer_id)    
+    list_cur = list(record)
+    json_data = dumps(list_cur, indent = 2) 
+    return json_data
 
 if __name__ == "__main__":
     app.run()

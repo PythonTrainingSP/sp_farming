@@ -75,11 +75,14 @@ while flag == 'y' or flag == 'Y':
 for record in records:
     spmilking.insert_one(record)
 '''
+
+def addmilkingdetail(customer_id, date, time, quantity, fat, snf, price):
+    spmilking.insert_one({"customer_id":customer_id, "date":date, "time":time, "quantity":quantity, "fat":fat, "snf":snf, "price":price})
 #modify a single data
 def updatemilkingdetailcustomerid(customer_id, date, time, quantity, fat, snf, price,):
     spmilking.update_one({"customer_id":customer_id}, {"$set":{"date":date, "time":time, "quantity":quantity, "fat":fat, "snf":snf, "price":price }})
 
 #remove specific data
-def removemilkingdetailcustomerid(customer_id):
+def deletemilkingdetailcustomerid(customer_id):
     spmilking.delete_one({"customer_id":"345"})
     
