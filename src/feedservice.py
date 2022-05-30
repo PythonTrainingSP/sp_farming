@@ -83,17 +83,22 @@ def add_feed():
     return '{"ok"}'
 
 
-@app.get('/find/feed/<date>')
+@app.get('/find/feed/<time>')
 # ‘/’ URL is bound with hello_world() function.
-def get_feed(date):
-    record = readfeedDetailbydate(date)     
+def get_feed(time):
+    record = readfeeddetailbytime(time)     
     list_cur = list(record)
     # Converting to the JSON
     json_data = dumps(list_cur, indent = 2) 
     return json_data
 
 
-
+@app.delete('/find/feed/<time>')
+def delete_feed(time):
+    record = readfeeddetailbytime(time)
+    list_cur = list(record)
+    json_data = dumps(list_cur, indent = 2) 
+    return json_data
 
 
 if __name__ == "__main__":
