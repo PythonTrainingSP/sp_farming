@@ -29,6 +29,7 @@ def readfeeddetailbytypesoffeed(types_of_feed):
     return feeddetail
 
 def readfeeddetailbyquantity(quantity):
+    quantity=int(quantity)
     feeddetail = spfeed.find({"quantity":quantity})
     return feeddetail
 
@@ -37,6 +38,7 @@ def readfeeddetailbywatering(watering):
     return feeddetail
 
 def readfeeddetailbyotherminerals(other_minerals):
+    other_minerals = int(other_minerals)
     feeddetail = spfeed.find({"other_minerals":other_minerals})
     return feeddetail
 
