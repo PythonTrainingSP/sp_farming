@@ -15,8 +15,11 @@ def readfeedDetailList():
     feeddetail = spfeed.find()
     return feeddetail
 
-#only for writing DB
+#only for writing DB 03-03-1972
 def readfeedDetailbydate(date):
+    #date = date.split("-")
+    #date = date[0] + "/" + date[1] + "/" + date[2] 
+    date = date.replace("-","/")
     feeddetail = spfeed.find({"date":date})
     return feeddetail
     
@@ -29,6 +32,7 @@ def readfeeddetailbytypesoffeed(types_of_feed):
     return feeddetail
 
 def readfeeddetailbyquantity(quantity):
+    quantity = int(quantity)
     feeddetail = spfeed.find({"quantity":quantity})
     return feeddetail
 

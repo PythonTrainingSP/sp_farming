@@ -10,7 +10,6 @@ Converted CSV writing to MongoDB
 '''
 from db.dbconnection import *             #only for writing db
 
-
 def readcowdetailbycowid(cow_id):
     cowdetail = spcow.find({"cow_id":cow_id})
     return cowdetail
